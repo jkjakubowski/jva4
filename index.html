@@ -141,7 +141,16 @@
   .chart-card h3 { margin: 0 0 2px 8px; font-size: 1rem; font-weight: 700; }
   .chart-card .sub { margin: 0 0 10px 8px; color: var(--muted); font-size: 0.8rem; }
   .chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  #bkchart { width: 100%; min-width: 720px; height: auto; display: block; touch-action: pan-y; }
+  #bkchart { width: 100%; min-width: 720px; height: auto; display: block; touch-action: manipulation; }
+  .scroll-hint { display: none; }
+  @media (max-width: 760px) {
+    .chart-card { padding-left: 8px; padding-right: 8px; }
+    .scroll-hint {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      margin: 6px 0 2px; color: var(--muted); font-size: 0.72rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+  }
   .tooltip {
     position: absolute; pointer-events: none; z-index: 5; display: none;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
@@ -311,6 +320,7 @@
     <div class="chart-scroll">
       <svg id="bkchart" viewBox="0 0 960 430" role="img" aria-label="Courbe de la bankroll, de 600 euros au pari zéro jusqu'à 1755 euros au pari 47, avec un pic à 1949 euros au pari 45 et une chute à 1500 euros au pari 46"></svg>
     </div>
+    <div class="scroll-hint" aria-hidden="true">← faites glisser le graphique →</div>
     <div class="tooltip" id="tip"></div>
   </div>
   <ul class="annots">
