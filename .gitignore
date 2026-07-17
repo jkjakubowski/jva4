@@ -1,0 +1,7 @@
+# Fichiers privés — ne pas publier
+*.xlsx
+couverture.jpeg
+add_mises.py
+build_xlsx.py
+.claude/
+.DS_Store
