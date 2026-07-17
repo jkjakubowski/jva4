@@ -5,3 +5,7 @@ add_mises.py
 build_xlsx.py
 .claude/
 .DS_Store
+_chat.txt
+*.jpg
+*.jpeg
+*.zip

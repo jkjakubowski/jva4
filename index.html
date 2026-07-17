@@ -264,6 +264,87 @@
   td .pos { color: var(--win); font-weight: 700; }
   tr.total td { font-weight: 800; border-top: 2px solid var(--ink); }
 
+  /* ---------- easter egg : audit ---------- */
+  .vault { margin-top: 2rem; text-align: center; }
+  .vault button {
+    background: none; border: none; color: var(--muted); font-size: 0.75rem;
+    font-family: ui-monospace, Menlo, monospace; cursor: pointer; letter-spacing: 0.06em;
+    padding: 4px 8px;
+  }
+  .vault button:hover { color: var(--ink-2); }
+  .vault-form { display: none; justify-content: center; gap: 8px; margin-top: 10px; }
+  .vault-form.open { display: flex; }
+  .vault-form input {
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 8px;
+    color: var(--ink); font-family: ui-monospace, Menlo, monospace; font-size: 0.85rem;
+    padding: 8px 12px; width: 190px;
+  }
+  .vault-form input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .vault-form .go {
+    background: var(--accent); color: #fff; border: none; border-radius: 8px;
+    padding: 8px 14px; font-weight: 700; font-size: 0.85rem; cursor: pointer;
+  }
+  .vault-msg { color: var(--loss); font-size: 0.78rem; margin-top: 8px; min-height: 1.2em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .shake { animation: shake 0.4s; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  }
+
+  #audit[hidden] { display: none; }
+  #audit { position: relative; }
+  .audit-head { position: relative; }
+  .audit-stamp {
+    display: inline-block; margin-bottom: 0.8rem;
+    border: 2px solid var(--loss); color: var(--loss); border-radius: 6px;
+    font-family: ui-monospace, Menlo, monospace; font-weight: 800; font-size: 0.72rem;
+    letter-spacing: 0.3em; text-transform: uppercase; padding: 4px 10px 4px 13px;
+    transform: rotate(-2deg);
+  }
+  .audit-meta { color: var(--muted); font-size: 0.85rem; font-family: ui-monospace, Menlo, monospace; }
+  .chartbox {
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
+    padding: 16px 18px; margin-top: 14px;
+  }
+  .chartbox h3 { margin: 0 0 12px; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .hbar-row { display: grid; grid-template-columns: 74px 1fr; gap: 10px; align-items: center; margin: 8px 0; }
+  .hbar-name { font-weight: 700; font-size: 0.85rem; text-align: right; }
+  .hbar-track { display: flex; align-items: center; gap: 8px; }
+  .hbar-fill { height: 18px; border-radius: 0 4px 4px 0; min-width: 3px; }
+  .hbar-val { font-family: ui-monospace, Menlo, monospace; font-size: 0.78rem; font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+  .p-jk { background: #2a78d6; } .p-oc { background: #008300; }
+  .p-tr { background: #eda100; } .p-ba { background: #e34948; }
+
+  .suspects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 1.4rem; }
+  .suspect { background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; padding: 16px 18px; }
+  .suspect.ghost { border-color: var(--loss); }
+  .s-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .s-avatar {
+    width: 40px; height: 40px; border-radius: 50%; flex: none; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem;
+  }
+  .s-name { font-weight: 800; line-height: 1.15; }
+  .s-badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+    border: 1px solid var(--hairline); border-radius: 99px; padding: 1px 9px; color: var(--ink-2); margin-top: 3px;
+  }
+  .s-stats { display: grid; gap: 4px; margin: 10px 0; font-size: 0.82rem; }
+  .s-stat { display: flex; justify-content: space-between; gap: 10px; color: var(--ink-2); }
+  .s-stat b { font-family: ui-monospace, Menlo, monospace; color: var(--ink); font-weight: 700; }
+  .s-quotes { border-top: 1px dashed var(--hairline); padding-top: 8px; display: grid; gap: 6px; }
+  .s-quotes p { margin: 0; font-size: 0.8rem; color: var(--ink-2); font-style: italic; }
+  .s-quotes p span { color: var(--muted); font-style: normal; font-size: 0.72rem; }
+
+  .verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 1.4rem; }
+  .v-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; padding: 14px 18px; }
+  .v-card h4 { margin: 0 0 6px; font-size: 0.95rem; }
+  .v-card p { margin: 0; font-size: 0.85rem; color: var(--ink-2); }
+  .funfacts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.4rem; }
+  .ff {
+    background: var(--accent-soft); border-radius: 99px; padding: 6px 14px;
+    font-size: 0.78rem; color: var(--ink-2);
+  }
+  .ff b { color: var(--ink); font-family: ui-monospace, Menlo, monospace; }
+
   footer {
     margin: 5rem 0 0; padding: 2rem 0 3rem;
     border-top: 1px solid var(--hairline);
@@ -543,10 +624,149 @@
   <p>Le carry des gérants — la part des Parieurs Fous sur le surplus — s'élève à <strong>277,50&nbsp;€</strong>, soit 69,38&nbsp;€ par tête. Rapporté aux heures passées devant les matchs « pour le fonds », le taux horaire reste inférieur au SMIC. On le fait pour la gloire.</p>
 </section>
 
+<section class="col" id="audit" hidden>
+  <div class="audit-head">
+    <div class="audit-stamp">Confidentiel · gérants uniquement</div>
+    <div class="eyebrow">Hors bilan</div>
+    <h2>L'audit interne — Les Parieurs Fous 🤑</h2>
+    <p class="audit-meta">3 035 messages · 24 jours · 4 suspects · source : export WhatsApp du 17/07/2026</p>
+    <p class="lede">Les LPs ont eu le rapport. Vous, vous avez droit à la vérité : l'analyse forensique complète de la conversation. Tout est authentique, horodaté, et opposable en soirée.</p>
+  </div>
+
+  <div class="chartbox">
+    <h3>Volume de messages (qui a parlé ?)</h3>
+    <div class="hbar-row"><div class="hbar-name">JK</div><div class="hbar-track"><div class="hbar-fill p-jk" style="width:100%"></div><span class="hbar-val">1 258 · 41,4 %</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Octave</div><div class="hbar-track"><div class="hbar-fill p-oc" style="width:61%"></div><span class="hbar-val">770 · 25,4 %</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Tristan</div><div class="hbar-track"><div class="hbar-fill p-tr" style="width:59%"></div><span class="hbar-val">747 · 24,6 %</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Baptiste</div><div class="hbar-track"><div class="hbar-fill p-ba" style="width:21%"></div><span class="hbar-val">260 · 8,6 %</span></div></div>
+  </div>
+
+  <div class="chartbox">
+    <h3>Initiatives de paris (qui propose ?)</h3>
+    <div class="hbar-row"><div class="hbar-name">JK</div><div class="hbar-track"><div class="hbar-fill p-jk" style="width:100%"></div><span class="hbar-val">62</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Octave</div><div class="hbar-track"><div class="hbar-fill p-oc" style="width:32%"></div><span class="hbar-val">20</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Tristan</div><div class="hbar-track"><div class="hbar-fill p-tr" style="width:32%"></div><span class="hbar-val">20</span></div></div>
+    <div class="hbar-row"><div class="hbar-name">Baptiste</div><div class="hbar-track"><div class="hbar-fill p-ba" style="width:4%"></div><span class="hbar-val">2</span></div></div>
+  </div>
+
+  <div class="suspects">
+    <div class="suspect">
+      <div class="s-head">
+        <div class="s-avatar p-jk">JK</div>
+        <div><div class="s-name">Jan-Kasper Jakubowski</div><span class="s-badge">Le gérant de fait</span></div>
+      </div>
+      <div class="s-stats">
+        <div class="s-stat"><span>Messages</span><b>1 258 (41,4 %)</b></div>
+        <div class="s-stat"><span>Initiatives de paris</span><b>62 sur 104</b></div>
+        <div class="s-stat"><span>Screenshots de tickets envoyés</span><b>73</b></div>
+        <div class="s-stat"><span>Questions posées</span><b>104</b></div>
+      </div>
+      <div class="s-quotes">
+        <p>« France qualif genre 400 balles » <span>— 12/07, 11h41. La décision fatale.</span></p>
+        <p>« J'ai plus envie de regarder le foot. À quoi bon. » <span>— 14/07, 23h28.</span></p>
+        <p>« En vrai demain le btts j'y crois fort » <span>— 14/07, 23h45. Sept minutes après « à quoi bon ». Résultat : +255 €.</span></p>
+      </div>
+    </div>
+    <div class="suspect">
+      <div class="s-head">
+        <div class="s-avatar p-oc">OF</div>
+        <div><div class="s-name">Octave Flotat</div><span class="s-badge">Le supporter nocturne</span></div>
+      </div>
+      <div class="s-stats">
+        <div class="s-stat"><span>Messages</span><b>770 (25,4 %)</b></div>
+        <div class="s-stat"><span>Initiatives de paris</span><b>20</b></div>
+        <div class="s-stat"><span>Emojis 🤣 à lui seul</span><b>48 sur 50</b></div>
+        <div class="s-stat"><span>Messages entre minuit et 6h</span><b>52</b></div>
+      </div>
+      <div class="s-quotes">
+        <p>« Et voilà bebew c'est gagne pour la Colombie !! » <span>— 04/07, 4h50 du matin. Il regardait vraiment.</span></p>
+        <p>« 375 sur Btts et 100 sur qualif Norvège » <span>— 11/07. L'escalade non sollicitée (voir le veto de Tristan).</span></p>
+      </div>
+    </div>
+    <div class="suspect">
+      <div class="s-head">
+        <div class="s-avatar p-tr">TJ</div>
+        <div><div class="s-name">Tristan Jouve</div><span class="s-badge">L'analyste prudent</span></div>
+      </div>
+      <div class="s-stats">
+        <div class="s-stat"><span>Messages</span><b>747 (24,6 %)</b></div>
+        <div class="s-stat"><span>Initiatives de paris</span><b>20</b></div>
+        <div class="s-stat"><span>Valeur du veto « Pas qualif Norvège »</span><b>+100 €</b></div>
+        <div class="s-stat"><span>Messages entre minuit et 6h</span><b>72</b></div>
+      </div>
+      <div class="s-quotes">
+        <p>« Non chill on met des trucs safe » <span>— 24/06, 22h05. Douzième message du groupe. La doctrine était posée.</span></p>
+        <p>« Espagne je mets plus jamais btts » <span>— 08/07, deux jours après les −150 € de Portugal–Espagne. Leçon retenue.</span></p>
+        <p>« Je vais même pas regarder la finale » <span>— 14/07, 23h35.</span></p>
+      </div>
+    </div>
+    <div class="suspect ghost">
+      <div class="s-head">
+        <div class="s-avatar p-ba">BS</div>
+        <div><div class="s-name">Baptiste Schneider</div><span class="s-badge">Le fantôme</span></div>
+      </div>
+      <div class="s-stats">
+        <div class="s-stat"><span>Messages</span><b>260 (8,6 %)</b></div>
+        <div class="s-stat"><span>Initiatives de paris</span><b>2</b></div>
+        <div class="s-stat"><span>Emojis en 24 jours</span><b>0</b></div>
+        <div class="s-stat"><span>Plus long silence</span><b>2 jours</b></div>
+      </div>
+      <div class="s-quotes">
+        <p>« Tout me parait safe » <span>— 25/06. Contribution analytique type.</span></p>
+        <p>« À quoi bon venir au taff demain » <span>— 14/07, 23h33. Meilleur message du tournoi, toutes catégories.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:2.5rem">Le verdict</h2>
+  <div class="verdict">
+    <div class="v-card">
+      <h4>Qui a vraiment géré le fonds ?</h4>
+      <p>JK : 41 % du volume, 62 des 104 propositions de paris, 73 screenshots de tickets, et premier à écrire le matin 11 jours sur 24. C'est lui le GP opérationnel. Le carry de 69,38 € ne couvre pas le forfait data.</p>
+    </div>
+    <div class="v-card">
+      <h4>La France, c'était qui ?</h4>
+      <p>« France qualif genre 400 balles » — JK, le 12/07 à 11h41, avec calcul à l'appui : « on gagne 252e nets ». Tout le monde suit, Tristan confirme « Mais on met France se qualifie ». −448,98 €. Le département recouvrement assume.</p>
+    </div>
+    <div class="v-card">
+      <h4>Le veto à 100 €</h4>
+      <p>Le 11/07, Octave pousse deux fois « 100 sur qualif Norvège » en plus des 375 € de BTTS. Tristan : « Pas qualif Norvège ». La Norvège est éliminée le soir même. Décision la plus rentable du groupe rapportée au nombre de mots : +100 € en trois mots.</p>
+    </div>
+    <div class="v-card">
+      <h4>La rédemption en 7 minutes</h4>
+      <p>14/07, 23h38 : « On s'arrête là pour les paris ? » propose JK, qui offre même sa part. 23h45 : Tristan répond « tu prends ta part du gâteau 🤝 » et JK enchaîne « En vrai demain le btts j'y crois fort ». Le lendemain : +255 €, le plus gros gain du fonds. Le deuil a duré 7 minutes.</p>
+    </div>
+    <div class="v-card">
+      <h4>Baptiste — 69,38 € pour 260 messages</h4>
+      <p>2 initiatives en 24 jours, 0 emoji, un silence record de 2 jours. Mais un ratio carry/effort exceptionnel : 26,7 centimes du message. Le vrai gagnant de l'aventure, rapporté au temps investi.</p>
+    </div>
+    <div class="v-card">
+      <h4>Le mot le plus écrit du groupe</h4>
+      <p>« BTTS » : 126 occurrences (JK 78, Octave 29, Tristan 19, Baptiste 0 — cohérent). Le mot « safe » n'apparaît que 6 fois, ce qui, rapporté aux 4 206,67 € misés, en dit long.</p>
+    </div>
+  </div>
+
+  <div class="funfacts">
+    <span class="ff">Heure de pointe : <b>23 h</b> (425 messages)</span>
+    <span class="ff">Jour record : <b>07/07</b> — 285 messages (jour des deux −150 €)</span>
+    <span class="ff">Messages entre 2 h et 6 h : <b>10</b></span>
+    <span class="ff">Journée la plus calme : <b>13/07</b> — 6 messages (le calme avant le 14)</span>
+    <span class="ff">Questions posées : <b>219</b>, réponses claires : nettement moins</span>
+  </div>
+</section>
+
 <footer>
   <div class="col">
     <p><strong>JVA4 Capital</strong> · Rapport généré avec amour, une feuille Excel et un taux de réussite de 70&nbsp;%. Données arrêtées au 15/07/2026 (47 paris).</p>
     <p>Mentions légales : ceci n'est pas un conseil en investissement. Rien ici n'en est. Les performances passées ne préjugent pas des performances futures — surtout les nôtres, voir le 14 juillet. Jouer comporte des risques : endettement, dépendance, et paris sur la France. Cote moyenne de nos tickets gagnants : 1,85. Cote de probabilité que ce rapport soit lu jusqu'ici : 4,50 — bravo, vous venez de gagner notre estime.</p>
+    <div class="vault">
+      <button id="vault-toggle" type="button" title="Espace gérants">🔒 Accès gérants</button>
+      <form class="vault-form" id="vault-form" autocomplete="off">
+        <input type="password" id="vault-pass" placeholder="Mot de passe" aria-label="Mot de passe gérants">
+        <button class="go" type="submit">Entrer</button>
+      </form>
+      <div class="vault-msg" id="vault-msg"></div>
+    </div>
   </div>
 </footer>
 
@@ -750,5 +970,44 @@
   note.style.marginTop = "0.8rem";
   note.innerHTML = "* Exotiques : tirs cadrés, écarts de buts, buteurs, tennis (oui). Hors combiné #5 (+22,49 €) et combos buteur (#35, #38 comptés dans leur famille la plus proche).";
   barsEl.after(note);
+
+  /* ---------- easter egg : accès gérants ---------- */
+  const audit = document.getElementById("audit");
+  const vForm = document.getElementById("vault-form");
+  const vToggle = document.getElementById("vault-toggle");
+  const vPass = document.getElementById("vault-pass");
+  const vMsg = document.getElementById("vault-msg");
+  const KEY = "jva4_parieur_fou";
+  const FAILS = [
+    "Mauvais code. Un vrai Parieur Fou ne se trompe pas deux fois. (Sauf sur la France.)",
+    "Toujours pas. Indice : c'est ce que vous êtes, au singulier, en un seul mot.",
+    "Non. On a perdu 448,98 € avec plus de conviction que ça.",
+  ];
+  let failCount = 0;
+  function unlock(scroll) {
+    audit.hidden = false;
+    vToggle.textContent = "🔓 Accès gérants — session ouverte";
+    vMsg.textContent = "";
+    if (scroll) audit.scrollIntoView({behavior: "smooth", block: "start"});
+  }
+  if (localStorage.getItem(KEY) === "1") unlock(false);
+  vToggle.addEventListener("click", () => {
+    vForm.classList.toggle("open");
+    if (vForm.classList.contains("open")) vPass.focus();
+  });
+  vForm.addEventListener("submit", ev => {
+    ev.preventDefault();
+    const guess = vPass.value.toLowerCase().replace(/[\s-]/g, "");
+    if (guess === "parieurfou" || guess === "parieursfous") {
+      localStorage.setItem(KEY, "1");
+      unlock(true);
+      vForm.classList.remove("open");
+    } else {
+      vMsg.textContent = FAILS[Math.min(failCount++, FAILS.length - 1)];
+      vForm.classList.add("shake");
+      setTimeout(() => vForm.classList.remove("shake"), 450);
+      vPass.select();
+    }
+  });
 })();
 </script>
